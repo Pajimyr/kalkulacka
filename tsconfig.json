@@ -1,0 +1,16 @@
+{
+    // https://nuxt.com/docs/guide/concepts/typescript
+    "extends": "./.nuxt/tsconfig.json",
+    "compilerOptions": {
+        /* other configs */
+        "paths": {
+            "@/*": [
+                "./*" // set path `@/*` as alias of `src/*`
+            ],
+            "~/*": [
+                "./*" // set path `@/*` as alias of `src/*`
+            ]
+        }
+        /* other configs */
+    }
+}
