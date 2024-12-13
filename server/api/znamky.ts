@@ -4,18 +4,14 @@ import { znamkySchema } from '@/composables/utils/znamkySchema';
 import { calculateAmountOfMoney } from '~/composables/utils/calculateAmountOfMoney';
 
 export default defineEventHandler(async (event) => {
-    const body = await readBody(event);
-    const znamky = znamkySchema.parse(JSON.parse(body));
-
     try {
         const body = await readBody(event);
         const znamky = znamkySchema.parse(JSON.parse(body));
-
+        const results = validateResultsFromString(znamky.text);
         return {
             status: 'success',
-            celkem: calculateAmountOfMoney(
-                validateResultsFromString(znamky.text)
-            ),
+            celkem: calculateAmountOfMoney(results),
+            results,
         } as ZnamkyRequestResponse;
     } catch (e) {
         return {

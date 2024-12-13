@@ -8,6 +8,7 @@ export type ZnamkyRequestResponse =
     | {
           status: 'success';
           celkem: number;
+          results: Vysledky[];
       }
     | {
           status: 'error';
@@ -15,13 +16,13 @@ export type ZnamkyRequestResponse =
       };
 
 export type CalcKey =
-    | 'p5'
-    | 'p10'
-    | 'p20'
+    | '5'
+    | '10'
+    | '20'
     | 'n5'
     | 'n10'
     | 'n20'
-    | 'p2'
-    | 'p4'
-    | 'p6';
+    | '2'
+    | '4'
+    | '6';
 export type CalcValue = number[];
